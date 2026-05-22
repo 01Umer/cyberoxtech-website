@@ -4,7 +4,10 @@ declare(strict_types=1);
 require __DIR__ . '/mail.php';
 
 header('Content-Type: application/json; charset=UTF-8');
+header('Strict-Transport-Security: max-age=31536000; includeSubDomains; preload');
 header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
+header('Referrer-Policy: strict-origin-when-cross-origin');
 
 rate_limit('contact-request', 5, 900);
 

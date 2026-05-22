@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+header_remove('X-Powered-By');
+
 function cyberox_send_mail(string $to, string $subject, string $body, string $replyToEmail = '', string $replyToName = ''): bool
 {
     $fromEmail = getenv('CYBEROX_MAIL_FROM') ?: 'no-reply@cyberoxtech.com';
@@ -45,7 +47,7 @@ function rate_limit(string $endpoint, int $max = 5, int $window = 900): void
         $timestamps = json_decode((string) file_get_contents($file), true) ?? [];
     }
 
-    $timestamps = array_values(array_filter($timestamps, fn($t) => $now - $t < $window));
+    $timestamps = array_values(array_filter($timestamps, function ($t) use ($now) { return $now - $t < $window; }));
 
     if (count($timestamps) >= $max) {
         http_response_code(429);

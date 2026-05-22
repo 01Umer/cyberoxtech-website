@@ -4,7 +4,10 @@ declare(strict_types=1);
 require __DIR__ . '/mail.php';
 
 header('Content-Type: application/json; charset=UTF-8');
+header('Strict-Transport-Security: max-age=31536000; includeSubDomains; preload');
 header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
+header('Referrer-Policy: strict-origin-when-cross-origin');
 
 rate_limit('newsletter-subscribe', 3, 900);
 
@@ -30,7 +33,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 $to = getenv('CYBEROX_SALES_EMAIL') ?: 'sales@cyberoxtech.com';
 $subject = 'New Cyberox newsletter subscriber';
-$body = "New newsletter subscriber\n\nEmail: {$email}\nSubmitted at: " . gmdate('Y-m-d H:i:s') . " UTC\nSource page: " . ($_SERVER['HTTP_REFERER'] ?? 'Blog page');
+$sourcePage = safe_server($_SERVER['HTTP_REFERER'] ?? 'Blog page');
+$body = "New newsletter subscriber\n\nEmail: {$email}\nSubmitted at: " . gmdate('Y-m-d H:i:s') . " UTC\nSource page: {$sourcePage}";
 
 if (!cyberox_send_mail($to, $subject, $body, $email, $email)) {
     http_response_code(500);
