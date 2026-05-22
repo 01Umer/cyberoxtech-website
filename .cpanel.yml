@@ -1,5 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/public_html/cyberoxtech.com/
-    - rsync -av --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='*.zip' . $DEPLOYPATH
+    - mkdir -p $HOME/public_html/cyberoxtech.com
+    - /bin/cp -r . $HOME/public_html/cyberoxtech.com/
+    - /bin/rm -rf $HOME/public_html/cyberoxtech.com/.git $HOME/public_html/cyberoxtech.com/.cpanel.yml $HOME/public_html/cyberoxtech.com/cyberoxtech-website-deploy.zip
