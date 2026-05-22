@@ -2,40 +2,44 @@
 # CYBEROX TECHNOLOGIES — Apache .htaccess
 # ============================================================
 
+# Trust CDN/proxy HTTPS header to prevent redirect loops
+# StackCDN terminates SSL and forwards to Apache over HTTP internally.
+# Without this, Apache sees HTTP and keeps redirecting to HTTPS endlessly.
+SetEnvIf X-Forwarded-Proto https HTTPS=on
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect HTTP to HTTPS (skipped when CDN already flagged HTTPS via env above)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Redirect non-www to www
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
 DirectoryIndex index.html index.php
 
-RewriteEngine On
-
-# Force www
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Remove trailing slash from non-directory URLs
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/$ /$1 [L,R=301]
-
-# Clean URLs (optional: remove .html extension from URLs)
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteRule ^([^\.]+)$ $1.html [NC,L]
-
-# Block sensitive files — return 404 instead of revealing their existence
+# Block sensitive files
 <FilesMatch "(^\.env|^\.git|^\.DS_Store|^composer\.(json|lock)|^package(-lock)?\.json)$">
-  Require all denied
-  ErrorDocument 403 /index.html
+  Order deny,allow
+  Deny from all
 </FilesMatch>
 
 # Custom 404
 ErrorDocument 404 /index.html
 
 # Security Headers
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';"
-Header always set X-Content-Type-Options "nosniff"
-Header always set X-Frame-Options "SAMEORIGIN"
-Header always set Referrer-Policy "strict-origin-when-cross-origin"
-Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-Header always set Cache-Control "no-store" "expr=%{CONTENT_TYPE} =~ m#^text/html#"
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
 
 # Cache Control
 <IfModule mod_expires.c>
