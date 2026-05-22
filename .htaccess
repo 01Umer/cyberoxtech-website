@@ -1,0 +1,59 @@
+# ============================================================
+# CYBEROX TECHNOLOGIES — Apache .htaccess
+# ============================================================
+
+DirectoryIndex index.html index.php
+
+RewriteEngine On
+
+# Force www
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove trailing slash from non-directory URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Clean URLs (optional: remove .html extension from URLs)
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Block sensitive files — return 404 instead of revealing their existence
+<FilesMatch "(^\.env|^\.git|^\.DS_Store|^composer\.(json|lock)|^package(-lock)?\.json)$">
+  Require all denied
+  ErrorDocument 403 /index.html
+</FilesMatch>
+
+# Custom 404
+ErrorDocument 404 /index.html
+
+# Security Headers
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+Header always set Cache-Control "no-store" "expr=%{CONTENT_TYPE} =~ m#^text/html#"
+
+# Cache Control
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# GZIP Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>

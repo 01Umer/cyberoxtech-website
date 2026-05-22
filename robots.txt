@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /?s=
+
+Sitemap: https://www.cyberoxtech.com/sitemap.xml

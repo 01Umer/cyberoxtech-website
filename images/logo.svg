@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Cyberox Technologies logo</title>
+  <desc id="desc">Cyberox Technologies CX shield mark</desc>
+  <rect width="512" height="512" rx="96" fill="#0A1628"/>
+  <path d="M256 62 404 124v111c0 92-58 174-148 215-90-41-148-123-148-215V124L256 62Z" fill="#0066FF"/>
+  <path d="M256 95 372 143v91c0 72-44 139-116 174-72-35-116-102-116-174v-91l116-48Z" fill="#0A1628"/>
+  <path d="M229 314c-42 0-72-31-72-74s30-74 72-74c30 0 54 15 65 40l-34 15c-6-13-17-21-31-21-20 0-35 17-35 40s15 40 35 40c15 0 27-8 33-22l34 15c-11 26-36 41-67 41Z" fill="#FFFFFF"/>
+  <path d="M287 168h43l-35 68 39 76h-44l-21-44-22 44h-43l40-76-36-68h44l17 38 18-38Z" fill="#00D4FF"/>
+</svg>

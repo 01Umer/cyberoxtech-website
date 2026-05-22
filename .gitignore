@@ -1,0 +1,13 @@
+# Deploy archives
+*.zip
+*.tar.gz
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# PHP tmp/cache
+/tmp/

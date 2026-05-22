@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Cyberox Technologies social preview</title>
+  <desc id="desc">Cybersecurity and GRC compliance consulting preview image</desc>
+  <rect width="1200" height="630" fill="#0A1628"/>
+  <rect x="72" y="72" width="1056" height="486" rx="32" fill="#112240" stroke="#1a3a5c" stroke-width="2"/>
+  <circle cx="996" cy="142" r="78" fill="#0066FF" opacity=".18"/>
+  <circle cx="1060" cy="500" r="112" fill="#00D4FF" opacity=".1"/>
+  <g transform="translate(110 125)">
+    <rect width="92" height="92" rx="20" fill="#0066FF"/>
+    <text x="46" y="61" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#fff">CX</text>
+  </g>
+  <text x="110" y="276" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" fill="#FFFFFF">Cyberox Technologies</text>
+  <text x="110" y="344" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600" fill="#00D4FF">Cybersecurity &amp; GRC Compliance Consulting</text>
+  <text x="110" y="418" font-family="Inter, Arial, sans-serif" font-size="28" fill="#C8D0DF">ISO 27001 • SOC 2 • vCISO • Penetration Testing • CyberShield GRC</text>
+  <text x="110" y="486" font-family="Inter, Arial, sans-serif" font-size="24" fill="#8A9BBF">Pakistan • UAE • Saudi Arabia • Qatar • Singapore</text>
+</svg>
