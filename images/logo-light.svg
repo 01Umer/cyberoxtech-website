@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 220" width="114" height="38" role="img" aria-label="Cyberox Technologies">
+  <title>Cyberox Technologies</title>
+  <defs>
+    <!-- Dark navy → bright cyan gradient for icon (light bg version) -->
+    <linearGradient id="cgL" x1="30" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0D1B5E"/>
+      <stop offset="50%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#00B8D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── Icon (0–220 × 0–220) ── -->
+
+  <!-- Outer hex-C -->
+  <path d="M193,28 H88 L35,82 V138 L88,192 H193"
+        fill="none" stroke="url(#cgL)" stroke-width="12"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Middle hex-C -->
+  <path d="M170,50 H103 L57,96 V124 L103,170 H170"
+        fill="none" stroke="url(#cgL)" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Inner hex-C -->
+  <path d="M148,72 H118 L79,110 L118,148 H148"
+        fill="none" stroke="url(#cgL)" stroke-width="8"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- PCB traces – upper-left corner -->
+  <line x1="35" y1="82" x2="10" y2="55" stroke="#0D1B5E" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="10" cy="55" r="7" fill="#0D1B5E"/>
+  <line x1="35" y1="82" x2="7" y2="82" stroke="#0D1B5E" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="7" cy="82" r="5" fill="#0D1B5E"/>
+
+  <!-- PCB traces – lower-left corner -->
+  <line x1="35" y1="138" x2="10" y2="165" stroke="#0D1B5E" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="10" cy="165" r="7" fill="#0D1B5E"/>
+  <line x1="35" y1="138" x2="7" y2="138" stroke="#0D1B5E" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="7" cy="138" r="5" fill="#0D1B5E"/>
+
+  <!-- Arm-tip nodes -->
+  <circle cx="193" cy="28" r="10" fill="#00B8D4"/>
+  <circle cx="193" cy="192" r="10" fill="#00B8D4"/>
+  <circle cx="170" cy="50" r="7" fill="#1090CC" opacity="0.85"/>
+  <circle cx="170" cy="170" r="7" fill="#1090CC" opacity="0.85"/>
+
+  <!-- ── Wordmark (starts at x=240) ── -->
+
+  <!-- CYBEROX: "CYBER" dark navy, "OX" cyan blue -->
+  <text y="138"
+        font-family="-apple-system, BlinkMacSystemFont, 'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="800" font-size="88" letter-spacing="-1">
+    <tspan x="240" fill="#0D1B5E">CYBER</tspan><tspan fill="#0099C8">OX</tspan>
+  </text>
+
+  <!-- TECHNOLOGIES sub-text -->
+  <text x="244" y="182"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif"
+        font-weight="400" font-size="28" fill="#5A6472" letter-spacing="9">TECHNOLOGIES</text>
+</svg>

@@ -40,12 +40,12 @@
   }
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/images/logo.svg" />
+  <link rel="apple-touch-icon" href="/images/cyberox-logo.png" />
   <meta property="og:image" content="https://www.cyberoxtech.com/images/og-image.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
 </head>
 <body>
 
@@ -55,8 +55,7 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Cyberox Technologies Home">
-      <div class="nav-logo-icon">CX</div>
-      <span class="nav-logo-text">Cyberox <span>Technologies</span></span>
+      <img src="images/logo.svg?v=2" width="38" height="38" class="nav-logo-img" alt="Cyberox Technologies"><div class="nav-logo-text"><span class="nav-logo-brand">CYBER<span class="nav-logo-ox">OX</span></span><span class="nav-logo-tagline">TECHNOLOGIES</span></div>
     </a>
 
     <ul class="nav-menu" role="list">
@@ -97,6 +96,23 @@
               <a href="services/third-party-risk-assessment.html" role="menuitem"><span class="mega-menu-icon">🤝</span>Third Party Risk</a>
               <a href="services/security-awareness-training.html" role="menuitem"><span class="mega-menu-icon">🎓</span>Security Awareness Training</a>
             </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="products/index.html" class="nav-link" aria-haspopup="true">
+          Products
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <div class="mega-menu" role="menu">
+          <div class="mega-menu-group">
+            <div class="mega-menu-group-title">Product Categories</div>
+            <a href="products/index.html#firewalls" role="menuitem"><span class="mega-menu-icon">🔥</span>Next-Gen Firewalls</a>
+            <a href="products/index.html#endpoint" role="menuitem"><span class="mega-menu-icon">💻</span>Endpoint Security</a>
+            <a href="products/index.html#dlp" role="menuitem"><span class="mega-menu-icon">🛡️</span>DLP Solutions</a>
+            <a href="products/index.html#network" role="menuitem"><span class="mega-menu-icon">🌐</span>Routers &amp; Switches</a>
+            <div class="mega-menu-divider"></div>
+            <a href="products/index.html#quote" role="menuitem"><span class="mega-menu-icon">📩</span><strong style="color:var(--cyan)">Request a Quote</strong></a>
           </div>
         </div>
       </li>
@@ -170,6 +186,14 @@
   <div class="mobile-menu-section">
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
+  </div>
+  <div class="mobile-menu-section">
+    <div class="mobile-menu-title">Products</div>
+    <a href="products/index.html#firewalls">Next-Gen Firewalls</a>
+    <a href="products/index.html#endpoint">Endpoint Security</a>
+    <a href="products/index.html#dlp">DLP Solutions</a>
+    <a href="products/index.html#network">Routers &amp; Switches</a>
+    <a href="products/index.html">→ All Products</a>
   </div>
   <div class="mobile-menu-section">
     <div class="mobile-menu-title">Services</div>
@@ -355,6 +379,61 @@
     </div>
     <div class="text-center mt-48">
       <a href="services/index.html" class="btn btn-outline">View All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     PRODUCTS TEASER
+     ============================== -->
+<section class="section" aria-labelledby="products-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="badge badge-blue">Security Products</span>
+      <h2 id="products-heading">Enterprise Products We Supply &amp; Deploy</h2>
+      <p>As an authorized reseller, we source and deploy enterprise-grade security hardware and software from the world's leading vendors — fully configured and compliance-aligned from day one.</p>
+    </div>
+    <div class="grid grid-auto reveal">
+      <a href="products/index.html#firewalls" class="service-card" style="text-decoration:none;">
+        <div class="service-card-icon">🔥</div>
+        <h3>Next-Gen Firewalls</h3>
+        <p>Sophos XGS, FortiGate, Palo Alto PA-Series, and Check Point Quantum. Sized and configured for your network — not just shipped in a box.</p>
+        <span class="service-card-link">View firewalls <span class="arrow-icon">→</span></span>
+      </a>
+      <a href="products/index.html#endpoint" class="service-card" style="text-decoration:none;">
+        <div class="service-card-icon">💻</div>
+        <h3>Endpoint Security</h3>
+        <p>Sophos Intercept X, FortiEDR, Cortex XDR, and Kaspersky ESB. AI-driven endpoint protection that stops ransomware and zero-days before they execute.</p>
+        <span class="service-card-link">View endpoint products <span class="arrow-icon">→</span></span>
+      </a>
+      <a href="products/index.html#dlp" class="service-card" style="text-decoration:none;">
+        <div class="service-card-icon">🛡️</div>
+        <h3>DLP Solutions</h3>
+        <p>Forcepoint, Symantec, Sophos, and Microsoft Purview DLP. Prevent sensitive data from leaving your organization across email, cloud, and removable media.</p>
+        <span class="service-card-link">View DLP products <span class="arrow-icon">→</span></span>
+      </a>
+      <a href="products/index.html#network" class="service-card" style="text-decoration:none;">
+        <div class="service-card-icon">🌐</div>
+        <h3>Routers &amp; Switches</h3>
+        <p>Cisco Catalyst, Meraki, HP Aruba CX, and FortiSwitch. Enterprise networking hardware deployed and managed by our certified network engineers.</p>
+        <span class="service-card-link">View network hardware <span class="arrow-icon">→</span></span>
+      </a>
+    </div>
+    <div class="text-center mt-48">
+      <a href="products/index.html" class="btn btn-outline">View All Products →</a>
+    </div>
+    <!-- Vendor strip -->
+    <div style="margin-top:48px;padding-top:40px;border-top:1px solid var(--gray-200);text-align:center;">
+      <p style="font-size:0.8125rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:16px;">Authorized Partner Brands</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <span class="framework-badge">Sophos</span>
+        <span class="framework-badge">Fortinet</span>
+        <span class="framework-badge">Cisco</span>
+        <span class="framework-badge">Palo Alto Networks</span>
+        <span class="framework-badge">Check Point</span>
+        <span class="framework-badge">HP Aruba</span>
+        <span class="framework-badge">Kaspersky</span>
+      </div>
     </div>
   </div>
 </section>
@@ -686,8 +765,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo" style="margin-bottom:0;">
-          <div class="nav-logo-icon">CX</div>
-          <span class="nav-logo-text">Cyberox <span>Technologies</span></span>
+          <img src="images/logo.svg?v=2" width="38" height="38" class="nav-logo-img" alt="Cyberox Technologies"><div class="nav-logo-text"><span class="nav-logo-brand">CYBER<span class="nav-logo-ox">OX</span></span><span class="nav-logo-tagline">TECHNOLOGIES</span></div>
         </a>
         <p>Pakistan and GCC's trusted cybersecurity and GRC compliance partner. ISO 27001, SOC 2, vCISO, penetration testing, and the CyberShield platform.</p>
         <div class="footer-social">
@@ -706,6 +784,17 @@
           <li><a href="services/gap-assessment.html">Gap Assessment</a></li>
           <li><a href="services/risk-management.html">Risk Management</a></li>
           <li><a href="services/index.html">All Services →</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Products</div>
+        <ul>
+          <li><a href="products/index.html#firewalls">Firewalls</a></li>
+          <li><a href="products/index.html#endpoint">Endpoint Security</a></li>
+          <li><a href="products/index.html#dlp">DLP Solutions</a></li>
+          <li><a href="products/index.html#network">Routers &amp; Switches</a></li>
+          <li><a href="products/index.html#quote">Request a Quote</a></li>
+          <li><a href="products/index.html">All Products →</a></li>
         </ul>
       </div>
       <div>

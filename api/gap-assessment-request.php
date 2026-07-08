@@ -55,6 +55,13 @@ if ($errors !== []) {
     exit;
 }
 
+$captchaToken = gap_safe(gap_value('h-captcha-response'));
+if (!verify_hcaptcha($captchaToken)) {
+    http_response_code(422);
+    echo json_encode(['ok' => false, 'message' => 'CAPTCHA verification failed. Please try again.']);
+    exit;
+}
+
 $to = getenv('CYBEROX_SALES_EMAIL') ?: 'sales@cyberoxtech.com';
 $subject = 'New free gap assessment request - ' . $company;
 $submittedAt = gmdate('Y-m-d H:i:s') . ' UTC';

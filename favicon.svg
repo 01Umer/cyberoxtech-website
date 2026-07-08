@@ -1,6 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0A1628"/>
-  <path d="M32 7 51 15v14c0 12-7 22-19 28-12-6-19-16-19-28V15L32 7Z" fill="#0066FF"/>
-  <path d="M32 12 46 18v11c0 9-5 17-14 22-9-5-14-13-14-22V18l14-6Z" fill="#0A1628"/>
-  <text x="32" y="39" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#00D4FF">CX</text>
+  <title>Cyberox Technologies</title>
+  <rect width="64" height="64" rx="12" fill="#0A1628"/>
+  <defs>
+    <!-- Gradient scaled to 64×64 icon coordinate space -->
+    <linearGradient id="fg" x1="7" y1="0" x2="57" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1850C8"/>
+      <stop offset="55%" stop-color="#0E9EE0"/>
+      <stop offset="100%" stop-color="#00D4FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer hex-C (scaled from 220→64) -->
+  <path d="M57,6 H24 L7,23 V41 L24,58 H57"
+        fill="none" stroke="url(#fg)" stroke-width="3.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Middle hex-C -->
+  <path d="M50,13 H29 L14,28 V36 L29,51 H50"
+        fill="none" stroke="url(#fg)" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Inner hex-C -->
+  <path d="M43,20 H33 L21,32 L33,44 H43"
+        fill="none" stroke="url(#fg)" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Arm-tip nodes (outer C) -->
+  <circle cx="57" cy="6" r="3" fill="#00D4FF"/>
+  <circle cx="57" cy="58" r="3" fill="#00D4FF"/>
+
+  <!-- Arm-tip nodes (middle C) -->
+  <circle cx="50" cy="13" r="2" fill="#28C0F0" opacity="0.85"/>
+  <circle cx="50" cy="51" r="2" fill="#28C0F0" opacity="0.85"/>
 </svg>

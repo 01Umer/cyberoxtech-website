@@ -136,6 +136,16 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
+      // Validate hCaptcha if widget is present in this form
+      const captchaEl = form.querySelector('.h-captcha');
+      if (captchaEl) {
+        const tokenInput = form.querySelector('[name="h-captcha-response"]');
+        if (!tokenInput || !tokenInput.value) {
+          if (window.showToast) window.showToast('Please complete the CAPTCHA verification.', 'error');
+          return;
+        }
+      }
+
       btn.textContent = 'Submitting...';
       btn.disabled = true;
 
@@ -168,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.textContent = '✓ Request sent — We\'ll be in touch!';
         btn.style.background = 'var(--green)';
         form.reset();
+        if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       } catch (error) {
         btn.textContent = 'Could not send. Try again.';
         btn.style.background = 'var(--red)';

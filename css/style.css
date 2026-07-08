@@ -235,6 +235,7 @@ p { margin-bottom: 1rem; color: var(--text-body); line-height: 1.7; }
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 .nav-logo-icon {
   width: 40px; height: 40px;
@@ -249,8 +250,11 @@ p { margin-bottom: 1rem; color: var(--text-body); line-height: 1.7; }
   letter-spacing: -1px;
   flex-shrink: 0;
 }
-.nav-logo-text { color: var(--white); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.02em; }
-.nav-logo-text span { color: var(--cyan); }
+.nav-logo-img { height: 38px; width: auto; display: block; }
+.nav-logo-text { display: flex; flex-direction: column; gap: 2px; }
+.nav-logo-brand { color: var(--white); font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; line-height: 1; }
+.nav-logo-ox { color: var(--cyan); }
+.nav-logo-tagline { color: rgba(255,255,255,0.45); font-size: 0.5rem; letter-spacing: 0.22em; line-height: 1; font-weight: 500; }
 
 .nav-menu {
   display: flex;

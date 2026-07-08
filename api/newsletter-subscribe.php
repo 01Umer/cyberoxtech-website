@@ -31,12 +31,19 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+$captchaToken = trim((string) ($_POST['h-captcha-response'] ?? ''));
+if (!verify_hcaptcha($captchaToken)) {
+    http_response_code(422);
+    echo json_encode(['ok' => false, 'message' => 'CAPTCHA verification failed. Please try again.']);
+    exit;
+}
+
 $to = getenv('CYBEROX_SALES_EMAIL') ?: 'sales@cyberoxtech.com';
 $subject = 'New Cyberox newsletter subscriber';
 $sourcePage = safe_server($_SERVER['HTTP_REFERER'] ?? 'Blog page');
 $body = "New newsletter subscriber\n\nEmail: {$email}\nSubmitted at: " . gmdate('Y-m-d H:i:s') . " UTC\nSource page: {$sourcePage}";
 
-if (!cyberox_send_mail($to, $subject, $body, $email, $email)) {
+if (!cyberox_send_mail($to, $subject, $body, $email, '')) {
     http_response_code(500);
     echo json_encode(['ok' => false, 'message' => 'Subscription could not be sent right now.']);
     exit;
